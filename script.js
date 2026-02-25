@@ -365,21 +365,50 @@ function updateRiskLevel(level) {
     const riskDot = riskIndicator.querySelector('.risk-dot');
     const riskDescription = document.getElementById('risk-description');
     
-    // 獲取當前語言
-    const currentLang = window.languageManager ? window.languageManager.getCurrentLanguage() : 'zh';
+    // 獲取當前語言 - 優先使用 i18n 系統
+    let currentLang = 'zh';
+    if (window.i18n && window.i18n.getCurrentLanguage) {
+        currentLang = window.i18n.getCurrentLanguage();
+    } else if (window.languageManager && window.languageManager.getCurrentLanguage) {
+        currentLang = window.languageManager.getCurrentLanguage();
+    }
     
-    // 風險等級文字映射
-    const riskLevelText = {
-        low: { en: 'Low Risk', zh: '低風險', ar: 'مخاطر منخفضة', fr: 'Risque Faible', ru: 'Низкий риск', es: 'Riesgo Bajo' },
-        medium: { en: 'Medium Risk', zh: '中風險', ar: 'مخاطر متوسطة', fr: 'Risque Moyen', ru: 'Средний риск', es: 'Riesgo Medio' },
-        high: { en: 'High Risk', zh: '高風險', ar: 'مخاطر عالية', fr: 'Risque Élevé', ru: 'Высокий риск', es: 'Riesgo Alto' }
-    };
+    // 嘗試從 i18n 系統獲取風險等級文字
+    const i18nRiskLevelKey = `results.riskLevel.${level}`;
+    let riskLevelTranslation = '';
+    
+    if (window.i18n && window.i18n.getTranslation) {
+        riskLevelTranslation = window.i18n.getTranslation(i18nRiskLevelKey);
+    }
+    
+    // 如果 i18n 系統沒有翻譯，使用舊的多語言映射作為備用
+    if (!riskLevelTranslation || riskLevelTranslation === i18nRiskLevelKey) {
+        const riskLevelText = {
+            low: { en: 'Low Risk', zh: '低風險', ar: 'مخاطر منخفضة', fr: 'Risque Faible', ru: 'Низкий риск', es: 'Riesgo Bajo' },
+            medium: { en: 'Medium Risk', zh: '中風險', ar: 'مخاطر متوسطة', fr: 'Risque Moyen', ru: 'Средний риск', es: 'Riesgo Medio' },
+            high: { en: 'High Risk', zh: '高風險', ar: 'مخاطر عالية', fr: 'Risque Élevé', ru: 'Высокий риск', es: 'Riesgo Alto' }
+        };
+        riskLevelTranslation = riskLevelText[level][currentLang] || riskLevelText[level]['en'];
+    }
     
     // 更新風險等級文字
-    riskText.textContent = riskLevelText[level][currentLang] || riskLevelText[level]['en'];
+    riskText.textContent = riskLevelTranslation;
+    
+    // 嘗試從 i18n 系統獲取風險描述
+    const i18nRiskDescKey = `results.riskDescription.${level}`;
+    let riskDescTranslation = '';
+    
+    if (window.i18n && window.i18n.getTranslation) {
+        riskDescTranslation = window.i18n.getTranslation(i18nRiskDescKey);
+    }
+    
+    // 如果 i18n 系統沒有翻譯，使用舊的多語言映射作為備用
+    if (!riskDescTranslation || riskDescTranslation === i18nRiskDescKey) {
+        riskDescTranslation = riskDescriptions[level][currentLang] || riskDescriptions[level]['en'];
+    }
     
     // 更新風險描述
-    riskDescription.textContent = riskDescriptions[level][currentLang] || riskDescriptions[level]['en'];
+    riskDescription.textContent = riskDescTranslation;
     
     // 更新視覺指示器
     riskDot.classList.remove('low-risk', 'medium-risk', 'high-risk');
@@ -407,11 +436,58 @@ function updateRecommendations(level) {
     const recommendationsList = document.getElementById('recommendations-list');
     recommendationsList.innerHTML = '';
     
-    // 獲取當前語言
-    const currentLang = window.languageManager ? window.languageManager.getCurrentLanguage() : 'zh';
+    // 獲取當前語言 - 優先使用 i18n 系統
+    let currentLang = 'zh';
+    if (window.i18n && window.i18n.getCurrentLanguage) {
+        currentLang = window.i18n.getCurrentLanguage();
+    } else if (window.languageManager && window.languageManager.getCurrentLanguage) {
+        currentLang = window.languageManager.getCurrentLanguage();
+    }
     
     // 獲取對應語言的建議
-    const langRecommendations = recommendations[level][currentLang] || recommendations[level]['en'];
+    let langRecommendations = [];
+    
+    // 首先嘗試從 i18n 系統獲取建議
+    if (window.i18n && window.i18n.getTranslation) {
+        // 嘗試獲取風險等級特定的建議
+        for (let i = 1; i <= 4; i++) {
+            const key = `recommendation.${level}.${i}`;
+            let translation = window.i18n.getTranslation(key);
+            
+            // 如果沒有風險等級特定的建議，嘗試通用建議
+            if (!translation || translation === key) {
+                const genericKey = `recommendation.${i}`;
+                translation = window.i18n.getTranslation(genericKey);
+            }
+            
+            // 如果 i18n 系統有翻譯，使用它
+            if (translation && translation !== key && translation !== `recommendation.${i}`) {
+                langRecommendations.push(translation);
+            }
+        }
+    }
+    
+    // 如果 i18n 系統沒有足夠的建議，使用舊的多語言映射作為備用
+    if (langRecommendations.length < 4) {
+        const backupRecommendations = recommendations[level][currentLang] || recommendations[level]['en'];
+        // 只填充缺失的建議
+        for (let i = 0; i < 4; i++) {
+            if (!langRecommendations[i] && backupRecommendations[i]) {
+                langRecommendations[i] = backupRecommendations[i];
+            }
+        }
+    }
+    
+    // 確保我們有 4 個建議
+    if (langRecommendations.length < 4) {
+        // 最後的備用方案：使用預設的英文建議
+        const defaultRecommendations = recommendations[level]['en'];
+        for (let i = langRecommendations.length; i < 4; i++) {
+            if (defaultRecommendations[i]) {
+                langRecommendations[i] = defaultRecommendations[i];
+            }
+        }
+    }
     
     // 生成建議列表
     langRecommendations.forEach((rec, index) => {

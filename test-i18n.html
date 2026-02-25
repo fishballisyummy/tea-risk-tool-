@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i18n System Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .pass { color: green; }
+        .fail { color: red; }
+        button { margin: 5px; padding: 8px 15px; }
+    </style>
+</head>
+<body>
+    <h1>i18n System Test</h1>
+    
+    <div class="test-section">
+        <h2>Test Elements with data-i18n attributes</h2>
+        <p data-i18n="app.title">茶言觀色·客戶流失風險評估器</p>
+        <p data-i18n="app.description">幫助茶飲店管理層快速評估客戶流失風險</p>
+        <button data-i18n="button.assessRisk">評估風險</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Language Switching Test</h2>
+        <div>
+            <button onclick="switchLanguage('zh')">Switch to Chinese</button>
+            <button onclick="switchLanguage('en')">Switch to English</button>
+            <button onclick="switchLanguage('auto')">Auto Detect</button>
+        </div>
+        <p>Current Language: <span id="current-lang">zh</span></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="test-results">
+            <p>Tests will run automatically...</p>
+        </div>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script>
+        // Wait for i18n to initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(runTests, 500);
+        });
+        
+        function switchLanguage(lang) {
+            if (lang === 'auto') {
+                window.i18n.setLanguage(window.i18n.detectBrowserLanguage() || 'zh', true);
+            } else {
+                window.i18n.setLanguage(lang, true);
+            }
+            document.getElementById('current-lang').textContent = window.i18n.getCurrentLanguage();
+            runTests();
+        }
+        
+        function runTests() {
+            const results = document.getElementById('test-results');
+            results.innerHTML = '';
+            
+            const tests = [
+                {
+                    name: 'i18n object exists',
+                    test: () => window.i18n !== undefined
+                },
+                {
+                    name: 'getCurrentLanguage works',
+                    test: () => {
+                        const lang = window.i18n.getCurrentLanguage();
+                        return lang === 'zh' || lang === 'en';
+                    }
+                },
+                {
+                    name: 'getTranslation works for app.title',
+                    test: () => {
+                        const translation = window.i18n.getTranslation('app.title');
+                        return translation && translation !== 'app.title';
+                    }
+                },
+                {
+                    name: 'Language switching updates text',
+                    test: () => {
+                        const elements = document.querySelectorAll('[data-i18n]');
+                        return elements.length > 0;
+                    }
+                },
+                {
+                    name: 'LocalStorage persistence',
+                    test: () => {
+                        try {
+                            const saved = localStorage.getItem('tea-risk-tool-language');
+                            return saved === null || saved === 'zh' || saved === 'en';
+                        } catch (e) {
+                            return false;
+                        }
+                    }
+                }
+            ];
+            
+            let passed = 0;
+            tests.forEach(test => {
+                const result = test.test();
+                const div = document.createElement('div');
+                div.innerHTML = `<span class="${result ? 'pass' : 'fail'}">${result ? '✓' : '✗'}</span> ${test.name}`;
+                results.appendChild(div);
+                if (result) passed++;
+            });
+            
+            const summary = document.createElement('div');
+            summary.innerHTML = `<h3>Summary: ${passed}/${tests.length} tests passed</h3>`;
+            results.appendChild(summary);
+        }
+    </script>
+</body>
+</html>

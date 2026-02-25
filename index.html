@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>茶言觀色·客戶流失風險評估器</title>
+    <title data-i18n="app.title">茶言觀色·客戶流失風險評估器</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
             <div class="header-top">
                 <div class="logo">
                     <i class="fas fa-leaf"></i>
-                    <h1 data-i18n="appTitle">茶言觀色·客戶流失風險評估器</h1>
+                    <h1 data-i18n="app.title">茶言觀色·客戶流失風險評估器</h1>
                 </div>
                 <div class="language-selector">
                     <div class="language-dropdown">
@@ -28,55 +28,55 @@
                         <div class="language-dropdown-content" id="language-dropdown">
                             <div class="language-option" data-lang="auto">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>自動檢測</span>
+                                <span data-i18n="language.auto">自動檢測</span>
                             </div>
                             <div class="language-option" data-lang="en">
                                 <span class="language-flag">🇺🇸</span>
-                                <span>English</span>
+                                <span data-i18n="language.english">English</span>
                             </div>
                             <div class="language-option" data-lang="zh">
                                 <span class="language-flag">🇨🇳</span>
-                                <span>中文</span>
+                                <span data-i18n="language.chinese">中文</span>
                             </div>
                             <div class="language-option" data-lang="ar">
                                 <span class="language-flag">🇸🇦</span>
-                                <span>العربية</span>
+                                <span data-i18n="language.arabic">العربية</span>
                             </div>
                             <div class="language-option" data-lang="fr">
                                 <span class="language-flag">🇫🇷</span>
-                                <span>Français</span>
+                                <span data-i18n="language.french">Français</span>
                             </div>
                             <div class="language-option" data-lang="ru">
                                 <span class="language-flag">🇷🇺</span>
-                                <span>Русский</span>
+                                <span data-i18n="language.russian">Русский</span>
                             </div>
                             <div class="language-option" data-lang="es">
                                 <span class="language-flag">🇪🇸</span>
-                                <span>Español</span>
+                                <span data-i18n="language.spanish">Español</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="subtitle" data-i18n="appSubtitle">Tea Observation Customer Churn Risk Assessor</p>
-            <p class="description" data-i18n="appDescription">幫助茶飲店管理層快速評估客戶流失風險，提供數據驅動的留客建議</p>
+            <p class="subtitle" data-i18n="app.subtitle">Tea Observation Customer Churn Risk Assessor</p>
+            <p class="description" data-i18n="app.description">幫助茶飲店管理層快速評估客戶流失風險，提供數據驅動的留客建議</p>
         </header>
 
         <main class="main-content">
             <div class="assessment-container">
                 <section class="input-section">
-                    <h2><i class="fas fa-edit"></i> <span data-i18n="inputSectionTitle">客戶資料輸入</span></h2>
-                    <p class="section-description" data-i18n="inputSectionDescription">請輸入客戶的四個關鍵指標進行風險評估</p>
+                    <h2><i class="fas fa-edit"></i> <span data-i18n="input.title">客戶資料輸入</span></h2>
+                    <p class="section-description" data-i18n="input.description">請輸入客戶的四個關鍵指標進行風險評估</p>
                     
                     <form id="risk-assessment-form">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="age">
-                                    <i class="fas fa-user"></i> <span data-i18n="ageLabel">年齡</span>
+                                    <i class="fas fa-user"></i> <span data-i18n="field.age">年齡</span>
                                 </label>
                                 <div class="input-with-unit">
                                     <input type="number" id="age" name="age" min="18" max="80" value="30" required>
-                                    <span class="unit" data-i18n="ageUnit">歲</span>
+                                    <span class="unit" data-i18n="field.age.unit">歲</span>
                                 </div>
                                 <div class="range-slider">
                                     <input type="range" id="age-slider" min="18" max="80" value="30" class="slider">
@@ -85,11 +85,11 @@
 
                             <div class="form-group">
                                 <label for="monthly-visits">
-                                    <i class="fas fa-calendar-alt"></i> <span data-i18n="monthlyVisitsLabel">每月到訪次數</span>
+                                    <i class="fas fa-calendar-alt"></i> <span data-i18n="field.monthlyVisits">每月到訪次數</span>
                                 </label>
                                 <div class="input-with-unit">
                                     <input type="number" id="monthly-visits" name="monthly-visits" min="0" max="30" value="5" required>
-                                    <span class="unit" data-i18n="monthlyVisitsUnit">次/月</span>
+                                    <span class="unit" data-i18n="field.monthlyVisits.unit">次/月</span>
                                 </div>
                                 <div class="range-slider">
                                     <input type="range" id="visits-slider" min="0" max="30" value="5" class="slider">
@@ -98,11 +98,11 @@
 
                             <div class="form-group">
                                 <label for="days-since-last-visit">
-                                    <i class="fas fa-clock"></i> <span data-i18n="daysSinceLastVisitLabel">最近一次到訪天數</span>
+                                    <i class="fas fa-clock"></i> <span data-i18n="field.daysSinceLastVisit">最近一次到訪天數</span>
                                 </label>
                                 <div class="input-with-unit">
                                     <input type="number" id="days-since-last-visit" name="days-since-last-visit" min="0" max="365" value="15" required>
-                                    <span class="unit" data-i18n="daysSinceLastVisitUnit">天</span>
+                                    <span class="unit" data-i18n="field.daysSinceLastVisit.unit">天</span>
                                 </div>
                                 <div class="range-slider">
                                     <input type="range" id="days-slider" min="0" max="365" value="15" class="slider">
@@ -111,7 +111,7 @@
 
                             <div class="form-group">
                                 <label for="satisfaction-score">
-                                    <i class="fas fa-star"></i> <span data-i18n="satisfactionScoreLabel">滿意度評分</span>
+                                    <i class="fas fa-star"></i> <span data-i18n="field.satisfactionScore">滿意度評分</span>
                                 </label>
                                 <div class="satisfaction-stars">
                                     <div class="stars-container">
@@ -122,8 +122,8 @@
                                         <div class="star active" data-value="5">5</div>
                                     </div>
                                     <div class="score-labels">
-                                        <span data-i18n="veryDissatisfied">非常不滿意</span>
-                                        <span data-i18n="verySatisfied">非常滿意</span>
+                                        <span data-i18n="field.satisfaction.veryDissatisfied">非常不滿意</span>
+                                        <span data-i18n="field.satisfaction.verySatisfied">非常滿意</span>
                                     </div>
                                 </div>
                                 <input type="hidden" id="satisfaction-score" name="satisfaction-score" value="5">
@@ -132,28 +132,28 @@
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-chart-line"></i> <span data-i18n="assessRiskBtn">評估風險</span>
+                                <i class="fas fa-chart-line"></i> <span data-i18n="button.assessRisk">評估風險</span>
                             </button>
                             <button type="button" id="reset-btn" class="btn btn-secondary">
-                                <i class="fas fa-redo"></i> <span data-i18n="resetBtn">重設</span>
+                                <i class="fas fa-redo"></i> <span data-i18n="button.reset">重設</span>
                             </button>
                         </div>
                     </form>
                 </section>
 
                 <section class="result-section" id="result-section">
-                    <h2><i class="fas fa-chart-pie"></i> <span data-i18n="resultSectionTitle">風險評估結果</span></h2>
-                    <p class="section-description" data-i18n="resultSectionDescription">根據輸入資料計算的客戶流失風險分析</p>
+                    <h2><i class="fas fa-chart-pie"></i> <span data-i18n="results.title">風險評估結果</span></h2>
+                    <p class="section-description" data-i18n="results.description">根據輸入資料計算的客戶流失風險分析</p>
                     
                     <div class="result-cards">
                         <div class="result-card risk-level-card">
                             <div class="card-header">
-                                <h3><i class="fas fa-exclamation-triangle"></i> <span data-i18n="riskLevelTitle">風險等級</span></h3>
+                                <h3><i class="fas fa-exclamation-triangle"></i> <span data-i18n="results.riskLevel">風險等級</span></h3>
                             </div>
                             <div class="card-content">
                                 <div class="risk-indicator" id="risk-indicator">
                                     <div class="risk-dot low-risk"></div>
-                                    <span class="risk-text" id="risk-text" data-i18n="lowRisk">低風險</span>
+                                    <span class="risk-text" id="risk-text" data-i18n="results.riskLevel.low">低風險</span>
                                 </div>
                                 <div class="risk-description" id="risk-description">
                                     客戶忠誠度高，流失可能性低
@@ -163,7 +163,7 @@
 
                         <div class="result-card probability-card">
                             <div class="card-header">
-                                <h3><i class="fas fa-percentage"></i> <span data-i18n="churnProbabilityTitle">流失機率</span></h3>
+                                <h3><i class="fas fa-percentage"></i> <span data-i18n="results.churnProbability">流失機率</span></h3>
                             </div>
                             <div class="card-content">
                                 <div class="probability-display">
@@ -176,8 +176,8 @@
                                         </svg>
                                     </div>
                                     <div class="probability-details">
-                                        <p>基於數據模型計算</p>
-                                        <p class="probability-note">整體平均流失率：24.9%</p>
+                                        <p data-i18n="results.basedOnModel">基於數據模型計算</p>
+                                        <p class="probability-note" data-i18n="results.averageChurnRate">整體平均流失率：24.9%</p>
                                     </div>
                                 </div>
                             </div>
@@ -185,53 +185,53 @@
 
                         <div class="result-card recommendations-card">
                             <div class="card-header">
-                                <h3><i class="fas fa-lightbulb"></i> <span data-i18n="actionRecommendationsTitle">行動建議</span></h3>
+                                <h3><i class="fas fa-lightbulb"></i> <span data-i18n="results.actionRecommendations">行動建議</span></h3>
                             </div>
                             <div class="card-content">
                                 <ul class="recommendations-list" id="recommendations-list">
-                                    <li><i class="fas fa-check-circle"></i> 維持現有服務品質</li>
-                                    <li><i class="fas fa-check-circle"></i> 提供VIP專屬優惠</li>
-                                    <li><i class="fas fa-check-circle"></i> 邀請參與新品試飲</li>
-                                    <li><i class="fas fa-check-circle"></i> 定期發送關懷訊息</li>
+                                    <li><i class="fas fa-check-circle"></i> <span data-i18n="recommendation.1">維持現有服務品質</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span data-i18n="recommendation.2">提供VIP專屬優惠</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span data-i18n="recommendation.3">邀請參與新品試飲</span></li>
+                                    <li><i class="fas fa-check-circle"></i> <span data-i18n="recommendation.4">定期發送關懷訊息</span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <div class="risk-factors">
-                        <h3><i class="fas fa-chart-bar"></i> <span data-i18n="riskFactorsTitle">風險因素分析</span></h3>
+                        <h3><i class="fas fa-chart-bar"></i> <span data-i18n="riskFactors.title">風險因素分析</span></h3>
                         <div class="factors-grid">
                             <div class="factor">
-                                <div class="factor-label" data-i18n="daysSinceLastVisitFactor">最近到訪天數</div>
+                                <div class="factor-label" data-i18n="riskFactors.daysSinceLastVisit">最近到訪天數</div>
                                 <div class="factor-bar">
                                     <div class="factor-fill low-risk" style="width: 20%"></div>
                                 </div>
                                 <div class="factor-value">15天</div>
-                                <div class="factor-impact" data-i18n="impactLevel">影響程度：45%</div>
+                                <div class="factor-impact" data-i18n="riskFactors.impactLevel">影響程度：45%</div>
                             </div>
                             <div class="factor">
-                                <div class="factor-label" data-i18n="satisfactionScoreFactor">滿意度評分</div>
+                                <div class="factor-label" data-i18n="riskFactors.satisfactionScore">滿意度評分</div>
                                 <div class="factor-bar">
                                     <div class="factor-fill low-risk" style="width: 10%"></div>
                                 </div>
                                 <div class="factor-value">5分</div>
-                                <div class="factor-impact" data-i18n="impactLevel">影響程度：30%</div>
+                                <div class="factor-impact" data-i18n="riskFactors.impactLevel">影響程度：30%</div>
                             </div>
                             <div class="factor">
-                                <div class="factor-label" data-i18n="monthlyVisitsFactor">每月到訪次數</div>
+                                <div class="factor-label" data-i18n="riskFactors.monthlyVisits">每月到訪次數</div>
                                 <div class="factor-bar">
                                     <div class="factor-fill low-risk" style="width: 30%"></div>
                                 </div>
                                 <div class="factor-value">5次</div>
-                                <div class="factor-impact" data-i18n="impactLevel">影響程度：15%</div>
+                                <div class="factor-impact" data-i18n="riskFactors.impactLevel">影響程度：15%</div>
                             </div>
                             <div class="factor">
-                                <div class="factor-label" data-i18n="ageFactor">年齡</div>
+                                <div class="factor-label" data-i18n="riskFactors.age">年齡</div>
                                 <div class="factor-bar">
                                     <div class="factor-fill low-risk" style="width: 40%"></div>
                                 </div>
                                 <div class="factor-value">30歲</div>
-                                <div class="factor-impact" data-i18n="impactLevel">影響程度：10%</div>
+                                <div class="factor-impact" data-i18n="riskFactors.impactLevel">影響程度：10%</div>
                             </div>
                         </div>
                     </div>
@@ -240,34 +240,34 @@
 
             <section class="info-section">
                 <div class="info-card">
-                    <h3><i class="fas fa-info-circle"></i> <span data-i18n="rulesTitle">評估規則說明</span></h3>
+                    <h3><i class="fas fa-info-circle"></i> <span data-i18n="rules.title">評估規則說明</span></h3>
                     <div class="rules-grid">
                         <div class="rule-card low-risk-rule">
-                            <h4 data-i18n="lowRiskRulesTitle">低風險條件</h4>
+                            <h4 data-i18n="rules.lowRisk.title">低風險條件</h4>
                             <ul>
-                                <li>最近到訪天數 < 30天</li>
-                                <li>滿意度 ≥ 4分</li>
-                                <li>每月到訪次數 ≥ 7次</li>
+                                <li data-i18n="rules.lowRisk.1">最近到訪天數 < 30天</li>
+                                <li data-i18n="rules.lowRisk.2">滿意度 ≥ 4分</li>
+                                <li data-i18n="rules.lowRisk.3">每月到訪次數 ≥ 7次</li>
                             </ul>
-                            <p class="rule-probability">流失機率：~15%</p>
+                            <p class="rule-probability" data-i18n="rules.lowRisk.probability">流失機率：~15%</p>
                         </div>
                         <div class="rule-card medium-risk-rule">
-                            <h4 data-i18n="mediumRiskRulesTitle">中風險條件</h4>
+                            <h4 data-i18n="rules.mediumRisk.title">中風險條件</h4>
                             <ul>
-                                <li>最近到訪天數 30-60天</li>
-                                <li>滿意度 = 3分</li>
-                                <li>每月到訪次數 4-6次</li>
+                                <li data-i18n="rules.mediumRisk.1">最近到訪天數 30-60天</li>
+                                <li data-i18n="rules.mediumRisk.2">滿意度 = 3分</li>
+                                <li data-i18n="rules.mediumRisk.3">每月到訪次數 4-6次</li>
                             </ul>
-                            <p class="rule-probability">流失機率：~28.5%</p>
+                            <p class="rule-probability" data-i18n="rules.mediumRisk.probability">流失機率：~28.5%</p>
                         </div>
                         <div class="rule-card high-risk-rule">
-                            <h4 data-i18n="highRiskRulesTitle">高風險條件</h4>
+                            <h4 data-i18n="rules.highRisk.title">高風險條件</h4>
                             <ul>
-                                <li>最近到訪天數 > 60天</li>
-                                <li>滿意度 ≤ 2分</li>
-                                <li>每月到訪次數 ≤ 3次</li>
+                                <li data-i18n="rules.highRisk.1">最近到訪天數 > 60天</li>
+                                <li data-i18n="rules.highRisk.2">滿意度 ≤ 2分</li>
+                                <li data-i18n="rules.highRisk.3">每月到訪次數 ≤ 3次</li>
                             </ul>
-                            <p class="rule-probability">流失機率：~42%</p>
+                            <p class="rule-probability" data-i18n="rules.highRisk.probability">流失機率：~42%</p>
                         </div>
                     </div>
                 </div>
@@ -275,15 +275,13 @@
         </main>
 
         <footer class="footer">
-            <p data-i18n="footerText">茶言觀色·客戶流失風險評估器 v1.0 • 基於2026年2月數據分析</p>
-            <p class="footer-note" data-i18n="footerNote">本工具僅供參考，實際決策請結合業務經驗與市場狀況</p>
+            <p data-i18n="footer.version">茶言觀色·客戶流失風險評估器 v1.0 • 基於2026年2月數據分析</p>
+            <p class="footer-note" data-i18n="footer.disclaimer">本工具僅供參考，實際決策請結合業務經驗與市場狀況</p>
         </footer>
     </div>
 
-    <!-- 載入翻譯文件 -->
-    <script src="translations.js"></script>
-    <!-- 載入語言管理器 -->
-    <script src="language-manager.js"></script>
+    <!-- 載入國際化系統 -->
+    <script src="i18n.js"></script>
     <!-- 載入主應用程式邏輯 -->
     <script src="script.js"></script>
 </body>
