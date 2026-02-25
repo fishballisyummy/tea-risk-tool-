@@ -1,0 +1,954 @@
+/* 茶言觀色·客戶流失風險評估器 - 樣式表 */
+/* 主色調: 茶綠色 (#6B8E23) */
+
+:root {
+    /* 顏色變數 */
+    --primary-color: #6B8E23;      /* 茶綠色 */
+    --primary-light: #8FBC8F;      /* 淺茶綠 */
+    --primary-dark: #556B2F;       /* 深茶綠 */
+    
+    /* 風險等級顏色 */
+    --low-risk: #90EE90;           /* 淺綠色 */
+    --medium-risk: #FFFACD;        /* 淺黃色 */
+    --high-risk: #FFB6C1;          /* 淺紅色 */
+    
+    /* 文字顏色 */
+    --text-primary: #2C3E50;
+    --text-secondary: #7F8C8D;
+    --text-light: #FFFFFF;
+    
+    /* 背景顏色 */
+    --bg-light: #FAF9F6;           /* 米白背景 */
+    --bg-card: #FFFFFF;
+    --bg-dark: #1A252F;
+    
+    /* 邊框和陰影 */
+    --border-color: #E0E0E0;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    /* 間距 */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* 圓角 */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    
+    /* 字體大小 */
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-md: 1rem;
+    --font-lg: 1.25rem;
+    --font-xl: 1.5rem;
+    --font-xxl: 2rem;
+}
+
+/* 全局樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', 'Roboto', 'Microsoft JhengHei', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+/* 標頭樣式 */
+.header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--text-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-medium);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.logo i {
+    font-size: var(--font-xxl);
+}
+
+.logo h1 {
+    font-size: var(--font-xl);
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: var(--font-lg);
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xs);
+}
+
+.description {
+    font-size: var(--font-md);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 主要內容區域 */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.assessment-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 992px) {
+    .assessment-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 輸入區域樣式 */
+.input-section, .result-section {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.input-section h2, .result-section h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.section-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-sm);
+}
+
+/* 表單樣式 */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    text-align: center;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs);
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: var(--font-xs);
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.input-with-unit input {
+    flex: 1;
+    padding: var(--spacing-sm);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: var(--font-md);
+    transition: border-color 0.3s;
+}
+
+.input-with-unit input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.unit {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    min-width: 40px;
+}
+
+.range-slider {
+    margin-top: var(--spacing-xs);
+}
+
+.slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border-color);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: 2px solid var(--text-light);
+    box-shadow: var(--shadow-light);
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: 2px solid var(--text-light);
+    box-shadow: var(--shadow-light);
+}
+
+/* 滿意度評分樣式 */
+.satisfaction-stars {
+    margin-top: var(--spacing-sm);
+}
+
+.stars-container {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.star {
+    flex: 1;
+    text-align: center;
+    padding: var(--spacing-sm);
+    background-color: var(--bg-light);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.star:hover {
+    background-color: var(--primary-light);
+    color: var(--text-light);
+}
+
+.star.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+.score-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+}
+
+/* 按鈕樣式 */
+.form-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.btn {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-md);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-color);
+}
+
+/* 結果卡片樣式 */
+.result-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .result-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.result-card {
+    background-color: var(--bg-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    background-color: var(--primary-light);
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+    color: var(--text-primary);
+    font-size: var(--font-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.card-content {
+    padding: var(--spacing-md);
+}
+
+/* 風險指示器樣式 */
+.risk-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.risk-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.risk-dot.low-risk {
+    background-color: var(--low-risk);
+}
+
+.risk-dot.medium-risk {
+    background-color: var(--medium-risk);
+}
+
+.risk-dot.high-risk {
+    background-color: var(--high-risk);
+}
+
+.risk-text {
+    font-size: var(--font-lg);
+    font-weight: 700;
+}
+
+.risk-description {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+}
+
+/* 機率圓圈樣式 */
+.probability-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.probability-circle {
+    position: relative;
+}
+
+.probability-bg {
+    fill: none;
+    stroke: var(--border-color);
+}
+
+.probability-fill {
+    fill: none;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.probability-fill.low-risk {
+    stroke: var(--low-risk);
+}
+
+.probability-fill.medium-risk {
+    stroke: var(--medium-risk);
+}
+
+.probability-fill.high-risk {
+    stroke: var(--high-risk);
+}
+
+.probability-text {
+    font-size: 24px;
+    font-weight: 700;
+    fill: var(--text-primary);
+}
+
+.probability-details {
+    text-align: center;
+}
+
+.probability-details p {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+}
+
+.probability-note {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+/* 建議列表樣式 */
+.recommendations-list {
+    list-style: none;
+}
+
+.recommendations-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+    padding: var(--spacing-xs);
+    background-color: var(--bg-card);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-sm);
+}
+
+.recommendations-list li i {
+    color: var(--primary-color);
+}
+
+/* 風險因素分析樣式 */
+.risk-factors {
+    margin-top: var(--spacing-lg);
+}
+
+.risk-factors h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.factors-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .factors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .factors-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.factor {
+    background-color: var(--bg-card);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.factor-label {
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.factor-bar {
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    margin-bottom: var(--spacing-xs);
+    overflow: hidden;
+}
+
+.factor-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+.factor-fill.low-risk {
+    background-color: var(--low-risk);
+}
+
+.factor-fill.medium-risk {
+    background-color: var(--medium-risk);
+}
+
+.factor-fill.high-risk {
+    background-color: var(--high-risk);
+}
+
+.factor-value {
+    font-weight: 700;
+    font-size: var(--font-lg);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.factor-impact {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+}
+
+/* 資訊區域樣式 */
+.info-section {
+    margin-top: var(--spacing-lg);
+}
+
+.info-card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+.info-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .rules-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.rule-card {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-color);
+}
+
+.rule-card.low-risk-rule {
+    border-color: var(--low-risk);
+    background-color: rgba(144, 238, 144, 0.1);
+}
+
+.rule-card.medium-risk-rule {
+    border-color: var(--medium-risk);
+    background-color: rgba(255, 250, 205, 0.1);
+}
+
+.rule-card.high-risk-rule {
+    border-color: var(--high-risk);
+    background-color: rgba(255, 182, 193, 0.1);
+}
+
+.rule-card h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.rule-card ul {
+    list-style: none;
+    margin-bottom: var(--spacing-sm);
+}
+
+.rule-card li {
+    margin-bottom: var(--spacing-xs);
+    padding-left: var(--spacing-sm);
+    position: relative;
+    font-size: var(--font-sm);
+}
+
+.rule-card li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.rule-probability {
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    padding: var(--spacing-xs);
+    background-color: var(--bg-light);
+    border-radius: var(--radius-sm);
+}
+
+/* 頁尾樣式 */
+.footer {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-md);
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-note {
+    font-size: var(--font-xs);
+    opacity: 0.8;
+    margin-top: var(--spacing-xs);
+}
+
+/* 動畫效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 應用動畫 */
+.result-section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.risk-indicator {
+    animation: pulse 0.5s ease-in-out;
+}
+
+.probability-circle {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.recommendations-list li {
+    animation: fadeIn 0.3s ease-out;
+    animation-fill-mode: both;
+}
+
+.recommendations-list li:nth-child(1) { animation-delay: 0.1s; }
+.recommendations-list li:nth-child(2) { animation-delay: 0.2s; }
+.recommendations-list li:nth-child(3) { animation-delay: 0.3s; }
+.recommendations-list li:nth-child(4) { animation-delay: 0.4s; }
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .logo h1 {
+        font-size: var(--font-lg);
+    }
+    
+    .subtitle {
+        font-size: var(--font-md);
+    }
+    
+    .result-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .factors-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+    
+    .header {
+        padding: var(--spacing-md);
+    }
+    
+    .input-section, .result-section, .info-card {
+        padding: var(--spacing-md);
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* 列印樣式 */
+@media print {
+    .header {
+        background: none;
+        color: var(--text-primary);
+        box-shadow: none;
+    }
+    
+    .btn, .slider, .tooltip {
+        display: none;
+    }
+    
+    .result-card {
+        break-inside: avoid;
+    }
+}
+
+/* 額外的響應式優化 */
+@media (max-width: 576px) {
+    .logo {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-xs);
+    }
+    
+    .logo h1 {
+        font-size: var(--font-lg);
+        line-height: 1.3;
+    }
+    
+    .subtitle {
+        font-size: var(--font-sm);
+    }
+    
+    .description {
+        font-size: var(--font-sm);
+    }
+    
+    .input-section h2, .result-section h2 {
+        font-size: var(--font-lg);
+    }
+    
+    .card-header h3 {
+        font-size: var(--font-sm);
+    }
+    
+    .risk-text {
+        font-size: var(--font-md);
+    }
+    
+    .probability-text {
+        font-size: 20px;
+    }
+    
+    .recommendations-list li {
+        font-size: var(--font-xs);
+        padding: var(--spacing-xs) var(--spacing-xs);
+    }
+    
+    .factor {
+        padding: var(--spacing-sm);
+    }
+    
+    .factor-value {
+        font-size: var(--font-md);
+    }
+}
+
+/* 觸控裝置優化 */
+@media (hover: none) and (pointer: coarse) {
+    .star {
+        padding: var(--spacing-md) var(--spacing-sm);
+        min-height: 44px; /* 最小觸控目標尺寸 */
+    }
+    
+    .btn {
+        min-height: 44px; /* 最小觸控目標尺寸 */
+        padding: var(--spacing-md);
+    }
+    
+    .slider::-webkit-slider-thumb {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .slider::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* 高對比度模式支援 */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #2E5A1C;
+        --border-color: #000000;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+    }
+    
+    .risk-dot.low-risk {
+        background-color: #006400;
+    }
+    
+    .risk-dot.medium-risk {
+        background-color: #8B8000;
+    }
+    
+    .risk-dot.high-risk {
+        background-color: #8B0000;
+    }
+}
+
+/* 減少動畫偏好 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 深色模式支援 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-light: #1A252F;
+        --bg-card: #2C3E50;
+        --text-primary: #ECF0F1;
+        --text-secondary: #BDC3C7;
+        --border-color: #34495E;
+    }
+    
+    .input-section, .result-section, .info-card {
+        background-color: var(--bg-card);
+    }
+    
+    .input-with-unit input {
+        background-color: #34495E;
+        color: var(--text-primary);
+        border-color: #4A6572;
+    }
+    
+    .star {
+        background-color: #34495E;
+        color: var(--text-primary);
+        border-color: #4A6572;
+    }
+    
+    .star.active {
+        background-color: var(--primary-color);
+        color: var(--text-light);
+    }
+    
+    .btn-secondary {
+        background-color: #34495E;
+        color: var(--text-primary);
+        border-color: #4A6572;
+    }
+    
+    .btn-secondary:hover {
+        background-color: #4A6572;
+    }
+    
+    .result-card {
+        background-color: #34495E;
+    }
+    
+    .recommendations-list li {
+        background-color: #2C3E50;
+    }
+    
+    .factor {
+        background-color: #34495E;
+    }
+    
+    .rule-card {
+        background-color: rgba(52, 73, 94, 0.5);
+    }
+}
