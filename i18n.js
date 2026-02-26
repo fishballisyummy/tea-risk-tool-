@@ -45,6 +45,20 @@ const i18n = {
             nativeName: 'Español',
             flag: '🇪🇸',
             direction: 'ltr'
+        },
+        ja: {
+            code: 'ja',
+            name: 'Japanese',
+            nativeName: '日本語',
+            flag: '🇯🇵',
+            direction: 'ltr'
+        },
+        fa: {
+            code: 'fa',
+            name: 'Persian',
+            nativeName: 'فارسی',
+            flag: '🇮🇷',
+            direction: 'rtl'
         }
     },
 
@@ -922,6 +936,302 @@ const i18n = {
             'recommendation.high.2': 'Ofrecer descuento significativo para la próxima visita',
             'recommendation.high.3': 'Asignar representante de servicio al cliente dedicado',
             'recommendation.high.4': 'Crear plan de recuperación personalizado'
+        },
+        
+        // 日文翻譯
+        ja: {
+            // 應用標題和元數據
+            'app.title': '茶観察・顧客離反リスク評価ツール',
+            'app.subtitle': 'Tea Observation Customer Churn Risk Assessor',
+            'app.description': '茶店経営者が顧客離反リスクを迅速に評価し、データ駆動の顧客維持提案を提供します',
+            
+            // 語言選擇器
+            'language.selector': '言語',
+            'language.auto': '自動検出',
+            'language.english': '英語',
+            'language.chinese': '中国語',
+            'language.arabic': 'アラビア語',
+            'language.french': 'フランス語',
+            'language.russian': 'ロシア語',
+            'language.spanish': 'スペイン語',
+            'language.japanese': '日本語',
+            'language.persian': 'ペルシア語',
+            
+            // 導航和標題
+            'nav.input': '顧客データ入力',
+            'nav.results': 'リスク評価結果',
+            'nav.rules': '評価ルール',
+            
+            // 輸入區域
+            'input.title': '顧客データ入力',
+            'input.description': 'リスク評価のための4つの主要指標を入力してください',
+            
+            // 表單欄位
+            'field.age': '年齢',
+            'field.age.tooltip': '範囲: 18-80歳',
+            'field.age.unit': '歳',
+            
+            'field.monthlyVisits': '月間来店回数',
+            'field.monthlyVisits.tooltip': '範囲: 0-30回/月',
+            'field.monthlyVisits.unit': '回/月',
+            
+            'field.daysSinceLastVisit': '最終来店からの日数',
+            'field.daysSinceLastVisit.tooltip': '範囲: 0-365日',
+            'field.daysSinceLastVisit.unit': '日',
+            
+            'field.satisfactionScore': '満足度スコア',
+            'field.satisfactionScore.tooltip': '5段階評価: 1=非常に不満, 5=非常に満足',
+            'field.satisfaction.veryDissatisfied': '非常に不満',
+            'field.satisfaction.verySatisfied': '非常に満足',
+            
+            // 按鈕
+            'button.assessRisk': 'リスク評価',
+            'button.reset': 'リセット',
+            'button.submit': '送信',
+            'button.cancel': 'キャンセル',
+            
+            // 結果區域
+            'results.title': 'リスク評価結果',
+            'results.description': '入力データに基づく顧客離反リスク分析',
+            
+            'results.riskLevel': 'リスクレベル',
+            'results.riskLevel.low': '低リスク',
+            'results.riskLevel.medium': '中リスク',
+            'results.riskLevel.high': '高リスク',
+            
+            'results.riskDescription.low': '顧客忠誠度が高く、離反可能性が低い',
+            'results.riskDescription.medium': '顧客に離反リスクがあり、注意が必要',
+            'results.riskDescription.high': '顧客離反リスクが高く、即時対応が必要',
+            
+            'results.churnProbability': '離反確率',
+            'results.basedOnModel': 'データモデル計算に基づく',
+            'results.averageChurnRate': '全体平均離反率: 24.9%',
+            
+            'results.actionRecommendations': 'アクション推奨',
+            
+            // 風險因素分析
+            'riskFactors.title': 'リスク要因分析',
+            'riskFactors.daysSinceLastVisit': '最終来店からの日数',
+            'riskFactors.satisfactionScore': '満足度スコア',
+            'riskFactors.monthlyVisits': '月間来店回数',
+            'riskFactors.age': '年齢',
+            'riskFactors.impactLevel': '影響レベル',
+            
+            // 規則說明
+            'rules.title': '評価ルール説明',
+            'rules.lowRisk.title': '低リスク条件',
+            'rules.lowRisk.1': '最終来店からの日数 < 30日',
+            'rules.lowRisk.2': '満足度スコア ≥ 4点',
+            'rules.lowRisk.3': '月間来店回数 ≥ 7回',
+            'rules.lowRisk.probability': '離反確率: ~15%',
+            
+            'rules.mediumRisk.title': '中リスク条件',
+            'rules.mediumRisk.1': '最終来店からの日数 30-60日',
+            'rules.mediumRisk.2': '満足度スコア = 3点',
+            'rules.mediumRisk.3': '月間来店回数 4-6回',
+            'rules.mediumRisk.probability': '離反確率: ~28.5%',
+            
+            'rules.highRisk.title': '高リスク条件',
+            'rules.highRisk.1': '最終来店からの日数 > 60日',
+            'rules.highRisk.2': '満足度スコア ≤ 2点',
+            'rules.highRisk.3': '月間来店回数 ≤ 3回',
+            'rules.highRisk.probability': '離反確率: ~42%',
+            
+            // 頁尾
+            'footer.version': '茶観察・顧客離反リスク評価ツール v1.0 • 2026年2月データ分析に基づく',
+            'footer.disclaimer': 'このツールは参考用です。実際の決定はビジネス経験と市場状況を組み合わせる必要があります',
+            
+            // 工具提示和幫助文本
+            'tooltip.required': '必須項目',
+            'tooltip.range': '有効範囲',
+            'tooltip.help': '詳細情報を表示するにはクリック',
+            
+            // 錯誤訊息
+            'error.required': 'この項目は必須です',
+            'error.range': '値は {min} から {max} の間でなければなりません',
+            'error.invalid': '無効な値',
+            
+            // 成功訊息
+            'success.assessmentComplete': 'リスク評価が正常に完了しました',
+            
+            // 星星評分標籤
+            'stars.1': '非常に不満',
+            'stars.2': '不満',
+            'stars.3': '普通',
+            'stars.4': '満足',
+            'stars.5': '非常に満足',
+            
+            // 推薦項目
+            'recommendation.1': '現在のサービス品質を維持',
+            'recommendation.2': 'VIP限定オファーを提供',
+            'recommendation.3': '新製品試飲への参加を招待',
+            'recommendation.4': '定期的なケアメッセージを送信',
+            
+            // 風險等級特定推薦（低風險）
+            'recommendation.low.1': '現在のサービス品質を維持',
+            'recommendation.low.2': 'VIP限定オファーを提供',
+            'recommendation.low.3': '新製品試飲への参加を招待',
+            'recommendation.low.4': '定期的なケアメッセージを送信',
+            
+            // 風險等級特定推薦（中風險）
+            'recommendation.medium.1': 'パーソナライズされた割引クーポンを送信',
+            'recommendation.medium.2': '満足度調査を実施',
+            'recommendation.medium.3': 'ロイヤルティプログラム会員を提供',
+            'recommendation.medium.4': 'フォローアップ訪問リマインダーをスケジュール',
+            
+            // 風險等級特定推薦（高風險）
+            'recommendation.high.1': 'フィードバックを得るために顧客に直ちに連絡',
+            'recommendation.high.2': '次回訪問のための大幅な割引を提供',
+            'recommendation.high.3': '専任のカスタマーサービス担当者を割り当て',
+            'recommendation.high.4': 'パーソナライズされた回復計画を作成'
+        },
+        
+        // 波斯文翻譯
+        fa: {
+            // 應用標題和元數據
+            'app.title': 'ارزیاب ریسک از دست دادن مشتری چای‌خانه',
+            'app.subtitle': 'Tea Observation Customer Churn Risk Assessor',
+            'app.description': 'به مدیریت چای‌خانه‌ها کمک می‌کند تا به سرعت ریسک از دست دادن مشتری را ارزیابی کرده و پیشنهادات حفظ مشتری مبتنی بر داده ارائه دهد',
+            
+            // 語言選擇器
+            'language.selector': 'زبان',
+            'language.auto': 'تشخیص خودکار',
+            'language.english': 'انگلیسی',
+            'language.chinese': 'چینی',
+            'language.arabic': 'عربی',
+            'language.french': 'فرانسوی',
+            'language.russian': 'روسی',
+            'language.spanish': 'اسپانیایی',
+            'language.japanese': 'ژاپنی',
+            'language.persian': 'فارسی',
+            
+            // 導航和標題
+            'nav.input': 'ورود داده مشتری',
+            'nav.results': 'نتایج ارزیابی ریسک',
+            'nav.rules': 'قوانین ارزیابی',
+            
+            // 輸入區域
+            'input.title': 'ورود داده مشتری',
+            'input.description': 'لطفاً چهار شاخص کلیدی برای ارزیابی ریسک وارد کنید',
+            
+            // 表單欄位
+            'field.age': 'سن',
+            'field.age.tooltip': 'محدوده: 18-80 سال',
+            'field.age.unit': 'سال',
+            
+            'field.monthlyVisits': 'بازدیدهای ماهانه',
+            'field.monthlyVisits.tooltip': 'محدوده: 0-30 بار/ماه',
+            'field.monthlyVisits.unit': 'بار/ماه',
+            
+            'field.daysSinceLastVisit': 'روز از آخرین بازدید',
+            'field.daysSinceLastVisit.tooltip': 'محدوده: 0-365 روز',
+            'field.daysSinceLastVisit.unit': 'روز',
+            
+            'field.satisfactionScore': 'امتیاز رضایت',
+            'field.satisfactionScore.tooltip': 'مقیاس 5 امتیازی: 1=بسیار ناراضی, 5=بسیار راضی',
+            'field.satisfaction.veryDissatisfied': 'بسیار ناراضی',
+            'field.satisfaction.verySatisfied': 'بسیار راضی',
+            
+            // 按鈕
+            'button.assessRisk': 'ارزیابی ریسک',
+            'button.reset': 'بازنشانی',
+            'button.submit': 'ارسال',
+            'button.cancel': 'لغو',
+            
+            // 結果區域
+            'results.title': 'نتایج ارزیابی ریسک',
+            'results.description': 'تحلیل ریسک از دست دادن مشتری بر اساس داده‌های وارد شده',
+            
+            'results.riskLevel': 'سطح ریسک',
+            'results.riskLevel.low': 'ریسک پایین',
+            'results.riskLevel.medium': 'ریسک متوسط',
+            'results.riskLevel.high': 'ریسک بالا',
+            
+            'results.riskDescription.low': 'وفاداری مشتری بالا، احتمال از دست دادن کم',
+            'results.riskDescription.medium': 'مشتری ریسک از دست دادن دارد، نیاز به توجه',
+            'results.riskDescription.high': 'ریسک از دست دادن مشتری بالا، اقدام فوری لازم است',
+            
+            'results.churnProbability': 'احتمال از دست دادن',
+            'results.basedOnModel': 'بر اساس محاسبه مدل داده',
+            'results.averageChurnRate': 'میانگین نرخ از دست دادن کلی: 24.9%',
+            
+            'results.actionRecommendations': 'توصیه‌های اقدام',
+            
+            // 風險因素分析
+            'riskFactors.title': 'تحلیل عوامل ریسک',
+            'riskFactors.daysSinceLastVisit': 'روز از آخرین بازدید',
+            'riskFactors.satisfactionScore': 'امتیاز رضایت',
+            'riskFactors.monthlyVisits': 'بازدیدهای ماهانه',
+            'riskFactors.age': 'سن',
+            'riskFactors.impactLevel': 'سطح تأثیر',
+            
+            // 規則說明
+            'rules.title': 'توضیح قوانین ارزیابی',
+            'rules.lowRisk.title': 'شرایط ریسک پایین',
+            'rules.lowRisk.1': 'روز از آخرین بازدید < 30 روز',
+            'rules.lowRisk.2': 'امتیاز رضایت ≥ 4 امتیاز',
+            'rules.lowRisk.3': 'بازدیدهای ماهانه ≥ 7 بار',
+            'rules.lowRisk.probability': 'احتمال از دست دادن: ~15%',
+            
+            'rules.mediumRisk.title': 'شرایط ریسک متوسط',
+            'rules.mediumRisk.1': 'روز از آخرین بازدید 30-60 روز',
+            'rules.mediumRisk.2': 'امتیاز رضایت = 3 امتیاز',
+            'rules.mediumRisk.3': 'بازدیدهای ماهانه 4-6 بار',
+            'rules.mediumRisk.probability': 'احتمال از دست دادن: ~28.5%',
+            
+            'rules.highRisk.title': 'شرایط ریسک بالا',
+            'rules.highRisk.1': 'روز از آخرین بازدید > 60 روز',
+            'rules.highRisk.2': 'امتیاز رضایت ≤ 2 امتیاز',
+            'rules.highRisk.3': 'بازدیدهای ماهانه ≤ 3 بار',
+            'rules.highRisk.probability': 'احتمال از دست دادن: ~42%',
+            
+            // 頁尾
+            'footer.version': 'ارزیاب ریسک از دست دادن مشتری چای‌خانه v1.0 • بر اساس تحلیل داده فوریه 2026',
+            'footer.disclaimer': 'این ابزار فقط برای مرجع است. تصمیمات واقعی باید تجربه کسب‌وکار و شرایط بازار را ترکیب کنند',
+            
+            // 工具提示和幫助文本
+            'tooltip.required': 'فیلد الزامی',
+            'tooltip.range': 'محدوده معتبر',
+            'tooltip.help': 'برای اطلاعات بیشتر کلیک کنید',
+            
+            // 錯誤訊息
+            'error.required': 'این فیلد الزامی است',
+            'error.range': 'مقدار باید بین {min} و {max} باشد',
+            'error.invalid': 'مقدار نامعتبر',
+            
+            // 成功訊息
+            'success.assessmentComplete': 'ارزیابی ریسک با موفقیت تکمیل شد',
+            
+            // 星星評分標籤
+            'stars.1': 'بسیار ناراضی',
+            'stars.2': 'ناراضی',
+            'stars.3': 'خنثی',
+            'stars.4': 'راضی',
+            'stars.5': 'بسیار راضی',
+            
+            // 推薦項目
+            'recommendation.1': 'حفظ کیفیت خدمات فعلی',
+            'recommendation.2': 'ارائه پیشنهادات انحصاری VIP',
+            'recommendation.3': 'دعوت به مشارکت در چشیدن محصولات جدید',
+            'recommendation.4': 'ارسال پیام‌های مراقبت منظم',
+            
+            // 風險等級特定推薦（低風險）
+            'recommendation.low.1': 'حفظ کیفیت خدمات فعلی',
+            'recommendation.low.2': 'ارائه پیشنهادات انحصاری VIP',
+            'recommendation.low.3': 'دعوت به مشارکت در چشیدن محصولات جدید',
+            'recommendation.low.4': 'ارسال پیام‌های مراقبت منظم',
+            
+            // 風險等級特定推薦（中風險）
+            'recommendation.medium.1': 'ارسال کوپن‌های تخفیف شخصی‌سازی شده',
+            'recommendation.medium.2': 'انجام نظرسنجی رضایت',
+            'recommendation.medium.3': 'ارائه عضویت برنامه وفاداری',
+            'recommendation.medium.4': 'برنامه‌ریزی یادآوری پیگیری',
+            
+            // 風險等級特定推薦（高風險）
+            'recommendation.high.1': 'تماس فوری با مشتری برای دریافت بازخورد',
+            'recommendation.high.2': 'ارائه تخفیف قابل توجه برای بازدید بعدی',
+            'recommendation.high.3': 'تعیین نماینده خدمات مشتری اختصاصی',
+            'recommendation.high.4': 'ایجاد برنامه بازیابی شخصی‌سازی شده'
         }
     },
 

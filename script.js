@@ -8,7 +8,9 @@ const riskDescriptions = {
         ar: "ولاء العميل مرتفع، احتمالية الفقدان منخفضة",
         fr: "Fidélité client élevée, faible possibilité de perte",
         ru: "Высокая лояльность клиента, низкая вероятность оттока",
-        es: "Alta lealtad del cliente, baja posibilidad de pérdida"
+        es: "Alta lealtad del cliente, baja posibilidad de pérdida",
+        ja: "顧客忠誠度が高く、離反可能性が低い",
+        fa: "وفاداری مشتری بالا، احتمال از دست دادن کم"
     },
     medium: {
         en: "Customer has churn risk, needs attention",
@@ -16,7 +18,9 @@ const riskDescriptions = {
         ar: "العميل معرض لمخاطر الفقدان، يحتاج إلى اهتمام",
         fr: "Le client présente un risque de perte, nécessite une attention",
         ru: "Клиент имеет риск оттока, требует внимания",
-        es: "El cliente tiene riesgo de pérdida, necesita atención"
+        es: "El cliente tiene riesgo de pérdida, necesita atención",
+        ja: "顧客に離反リスクがあり、注意が必要",
+        fa: "مشتری ریسک از دست دادن دارد، نیاز به توجه"
     },
     high: {
         en: "High churn risk, immediate action required",
@@ -24,7 +28,9 @@ const riskDescriptions = {
         ar: "مخاطر فقدان العميل عالية، مطلوب إجراء فوري",
         fr: "Risque de perte client élevé, action immédiate requise",
         ru: "Высокий риск оттока клиентов, требуется немедленное действие",
-        es: "Alto riesgo de pérdida de clientes, se requiere acción inmediata"
+        es: "Alto riesgo de pérdida de clientes, se requiere acción inmediata",
+        ja: "顧客離反リスクが高く、即時対応が必要",
+        fa: "ریسک از دست دادن مشتری بالا، اقدام فوری لازم است"
     }
 };
 
@@ -66,6 +72,18 @@ const recommendations = {
             "Proporcionar ofertas exclusivas VIP",
             "Invitar a participar en la cata de nuevos productos",
             "Enviar mensajes de cuidado regulares"
+        ],
+        ja: [
+            "現在のサービス品質を維持",
+            "VIP限定オファーを提供",
+            "新製品試飲への参加を招待",
+            "定期的なケアメッセージを送信"
+        ],
+        fa: [
+            "حفظ کیفیت خدمات فعلی",
+            "ارائه پیشنهادات انحصاری VIP",
+            "دعوت به مشارکت در چشیدن محصولات جدید",
+            "ارسال پیام‌های مراقبت منظم"
         ]
     },
     medium: {
@@ -104,6 +122,18 @@ const recommendations = {
             "Proporcionar cupones exclusivos",
             "Invitar a eventos para miembros",
             "Recopilar comentarios para mejorar el servicio"
+        ],
+        ja: [
+            "ニーズを理解するために積極的に連絡",
+            "限定クーポンを提供",
+            "会員イベントに招待",
+            "サービス改善のためにフィードバックを収集"
+        ],
+        fa: [
+            "درک نیازها به صورت فعال تماس بگیرید",
+            "ارائه کوپن‌های انحصاری",
+            "دعوت به رویدادهای اعضا",
+            "جمع‌آوری بازخورد برای بهبود خدمات"
         ]
     },
     high: {
