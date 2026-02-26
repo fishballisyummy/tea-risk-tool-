@@ -630,6 +630,298 @@ const i18n = {
             'recommendation.high.2': 'Offrir une réduction importante pour la prochaine visite',
             'recommendation.high.3': 'Assigner un représentant du service client dédié',
             'recommendation.high.4': 'Créer un plan de récupération personnalisé'
+        },
+        
+        // 俄文翻譯
+        ru: {
+            // 應用標題和元數據
+            'app.title': 'Оценщик риска оттока клиентов для чайных магазинов',
+            'app.subtitle': 'Tea Observation Customer Churn Risk Assessor',
+            'app.description': 'Помогает руководству чайных магазинов быстро оценивать риск оттока клиентов и предоставляет рекомендации по удержанию на основе данных',
+            
+            // 語言選擇器
+            'language.selector': 'Язык',
+            'language.auto': 'Автоматическое определение',
+            'language.english': 'Английский',
+            'language.chinese': 'Китайский',
+            'language.arabic': 'Арабский',
+            'language.french': 'Французский',
+            'language.russian': 'Русский',
+            'language.spanish': 'Испанский',
+            
+            // 導航和標題
+            'nav.input': 'Ввод данных клиента',
+            'nav.results': 'Результаты оценки риска',
+            'nav.rules': 'Правила оценки',
+            
+            // 輸入區域
+            'input.title': 'Ввод данных клиента',
+            'input.description': 'Пожалуйста, введите четыре ключевых показателя для оценки риска',
+            
+            // 表單欄位
+            'field.age': 'Возраст',
+            'field.age.tooltip': 'Диапазон: 18-80 лет',
+            'field.age.unit': 'лет',
+            
+            'field.monthlyVisits': 'Ежемесячные посещения',
+            'field.monthlyVisits.tooltip': 'Диапазон: 0-30 раз/месяц',
+            'field.monthlyVisits.unit': 'раз/месяц',
+            
+            'field.daysSinceLastVisit': 'Дней с последнего посещения',
+            'field.daysSinceLastVisit.tooltip': 'Диапазон: 0-365 дней',
+            'field.daysSinceLastVisit.unit': 'дней',
+            
+            'field.satisfactionScore': 'Оценка удовлетворенности',
+            'field.satisfactionScore.tooltip': '5-балльная шкала: 1=Очень недоволен, 5=Очень доволен',
+            'field.satisfaction.veryDissatisfied': 'Очень недоволен',
+            'field.satisfaction.verySatisfied': 'Очень доволен',
+            
+            // 按鈕
+            'button.assessRisk': 'Оценить риск',
+            'button.reset': 'Сбросить',
+            'button.submit': 'Отправить',
+            'button.cancel': 'Отмена',
+            
+            // 結果區域
+            'results.title': 'Результаты оценки риска',
+            'results.description': 'Анализ риска оттока клиентов на основе введенных данных',
+            
+            'results.riskLevel': 'Уровень риска',
+            'results.riskLevel.low': 'Низкий риск',
+            'results.riskLevel.medium': 'Средний риск',
+            'results.riskLevel.high': 'Высокий риск',
+            
+            'results.riskDescription.low': 'Высокая лояльность клиента, низкая вероятность оттока',
+            'results.riskDescription.medium': 'Клиент имеет риск оттока, требует внимания',
+            'results.riskDescription.high': 'Высокий риск оттока клиента, требуется немедленное действие',
+            
+            'results.churnProbability': 'Вероятность оттока',
+            'results.basedOnModel': 'На основе расчета модели данных',
+            'results.averageChurnRate': 'Общий средний уровень оттока: 24.9%',
+            
+            'results.actionRecommendations': 'Рекомендации по действиям',
+            
+            // 風險因素分析
+            'riskFactors.title': 'Анализ факторов риска',
+            'riskFactors.daysSinceLastVisit': 'Дней с последнего посещения',
+            'riskFactors.satisfactionScore': 'Оценка удовлетворенности',
+            'riskFactors.monthlyVisits': 'Ежемесячные посещения',
+            'riskFactors.age': 'Возраст',
+            'riskFactors.impactLevel': 'Уровень влияния',
+            
+            // 規則說明
+            'rules.title': 'Объяснение правил оценки',
+            'rules.lowRisk.title': 'Условия низкого риска',
+            'rules.lowRisk.1': 'Дней с последнего посещения < 30 дней',
+            'rules.lowRisk.2': 'Оценка удовлетворенности ≥ 4 балла',
+            'rules.lowRisk.3': 'Ежемесячные посещения ≥ 7 раз',
+            'rules.lowRisk.probability': 'Вероятность оттока: ~15%',
+            
+            'rules.mediumRisk.title': 'Условия среднего риска',
+            'rules.mediumRisk.1': 'Дней с последнего посещения 30-60 дней',
+            'rules.mediumRisk.2': 'Оценка удовлетворенности = 3 балла',
+            'rules.mediumRisk.3': 'Ежемесячные посещения 4-6 раз',
+            'rules.mediumRisk.probability': 'Вероятность оттока: ~28.5%',
+            
+            'rules.highRisk.title': 'Условия высокого риска',
+            'rules.highRisk.1': 'Дней с последнего посещения > 60 дней',
+            'rules.highRisk.2': 'Оценка удовлетворенности ≤ 2 балла',
+            'rules.highRisk.3': 'Ежемесячные посещения ≤ 3 раза',
+            'rules.highRisk.probability': 'Вероятность оттока: ~42%',
+            
+            // 頁尾
+            'footer.version': 'Оценщик риска оттока клиентов для чайных магазинов v1.0 • На основе анализа данных февраля 2026',
+            'footer.disclaimer': 'Этот инструмент предназначен только для справки. Фактические решения должны сочетать бизнес-опыт и рыночные условия',
+            
+            // 工具提示和幫助文本
+            'tooltip.required': 'Обязательное поле',
+            'tooltip.range': 'Допустимый диапазон',
+            'tooltip.help': 'Нажмите для получения дополнительной информации',
+            
+            // 錯誤訊息
+            'error.required': 'Это поле обязательно для заполнения',
+            'error.range': 'Значение должно быть между {min} и {max}',
+            'error.invalid': 'Неверное значение',
+            
+            // 成功訊息
+            'success.assessmentComplete': 'Оценка риска успешно завершена',
+            
+            // 星星評分標籤
+            'stars.1': 'Очень недоволен',
+            'stars.2': 'Недоволен',
+            'stars.3': 'Нейтрально',
+            'stars.4': 'Доволен',
+            'stars.5': 'Очень доволен',
+            
+            // 推薦項目
+            'recommendation.1': 'Поддерживать текущее качество обслуживания',
+            'recommendation.2': 'Предоставлять эксклюзивные предложения для VIP',
+            'recommendation.3': 'Приглашать к участию в дегустации новых продуктов',
+            'recommendation.4': 'Отправлять регулярные сообщения заботы',
+            
+            // 風險等級特定推薦（低風險）
+            'recommendation.low.1': 'Поддерживать текущее качество обслуживания',
+            'recommendation.low.2': 'Предоставлять эксклюзивные предложения для VIP',
+            'recommendation.low.3': 'Приглашать к участию в дегустации новых продуктов',
+            'recommendation.low.4': 'Отправлять регулярные сообщения заботы',
+            
+            // 風險等級特定推薦（中風險）
+            'recommendation.medium.1': 'Отправлять персонализированные купоны на скидку',
+            'recommendation.medium.2': 'Проводить опрос удовлетворенности',
+            'recommendation.medium.3': 'Предлагать членство в программе лояльности',
+            'recommendation.medium.4': 'Запланировать напоминание о следующем визите',
+            
+            // 風險等級特定推薦（高風險）
+            'recommendation.high.1': 'Немедленно связаться с клиентом для получения обратной связи',
+            'recommendation.high.2': 'Предложить значительную скидку на следующий визит',
+            'recommendation.high.3': 'Назначить выделенного представителя службы поддержки клиентов',
+            'recommendation.high.4': 'Создать персонализированный план восстановления'
+        },
+        
+        // 西班牙文翻譯
+        es: {
+            // 應用標題和元數據
+            'app.title': 'Evaluador de Riesgo de Pérdida de Clientes para Teterías',
+            'app.subtitle': 'Tea Observation Customer Churn Risk Assessor',
+            'app.description': 'Ayuda a la gestión de teterías a evaluar rápidamente el riesgo de pérdida de clientes y proporciona sugerencias de retención basadas en datos',
+            
+            // 語言選擇器
+            'language.selector': 'Idioma',
+            'language.auto': 'Detección automática',
+            'language.english': 'Inglés',
+            'language.chinese': 'Chino',
+            'language.arabic': 'Árabe',
+            'language.french': 'Francés',
+            'language.russian': 'Ruso',
+            'language.spanish': 'Español',
+            
+            // 導航和標題
+            'nav.input': 'Entrada de Datos del Cliente',
+            'nav.results': 'Resultados de Evaluación de Riesgo',
+            'nav.rules': 'Reglas de Evaluación',
+            
+            // 輸入區域
+            'input.title': 'Entrada de Datos del Cliente',
+            'input.description': 'Por favor ingrese cuatro indicadores clave para la evaluación de riesgo',
+            
+            // 表單欄位
+            'field.age': 'Edad',
+            'field.age.tooltip': 'Rango: 18-80 años',
+            'field.age.unit': 'años',
+            
+            'field.monthlyVisits': 'Visitas Mensuales',
+            'field.monthlyVisits.tooltip': 'Rango: 0-30 veces/mes',
+            'field.monthlyVisits.unit': 'veces/mes',
+            
+            'field.daysSinceLastVisit': 'Días Desde la Última Visita',
+            'field.daysSinceLastVisit.tooltip': 'Rango: 0-365 días',
+            'field.daysSinceLastVisit.unit': 'días',
+            
+            'field.satisfactionScore': 'Puntuación de Satisfacción',
+            'field.satisfactionScore.tooltip': 'Escala de 5 puntos: 1=Muy insatisfecho, 5=Muy satisfecho',
+            'field.satisfaction.veryDissatisfied': 'Muy insatisfecho',
+            'field.satisfaction.verySatisfied': 'Muy satisfecho',
+            
+            // 按鈕
+            'button.assessRisk': 'Evaluar Riesgo',
+            'button.reset': 'Reiniciar',
+            'button.submit': 'Enviar',
+            'button.cancel': 'Cancelar',
+            
+            // 結果區域
+            'results.title': 'Resultados de Evaluación de Riesgo',
+            'results.description': 'Análisis de riesgo de pérdida de clientes basado en datos ingresados',
+            
+            'results.riskLevel': 'Nivel de Riesgo',
+            'results.riskLevel.low': 'Riesgo Bajo',
+            'results.riskLevel.medium': 'Riesgo Medio',
+            'results.riskLevel.high': 'Riesgo Alto',
+            
+            'results.riskDescription.low': 'Alta lealtad del cliente, baja posibilidad de pérdida',
+            'results.riskDescription.medium': 'El cliente tiene riesgo de pérdida, necesita atención',
+            'results.riskDescription.high': 'Alto riesgo de pérdida de cliente, se requiere acción inmediata',
+            
+            'results.churnProbability': 'Probabilidad de Pérdida',
+            'results.basedOnModel': 'Basado en cálculo del modelo de datos',
+            'results.averageChurnRate': 'Tasa de pérdida promedio general: 24.9%',
+            
+            'results.actionRecommendations': 'Recomendaciones de Acción',
+            
+            // 風險因素分析
+            'riskFactors.title': 'Análisis de Factores de Riesgo',
+            'riskFactors.daysSinceLastVisit': 'Días Desde la Última Visita',
+            'riskFactors.satisfactionScore': 'Puntuación de Satisfacción',
+            'riskFactors.monthlyVisits': 'Visitas Mensuales',
+            'riskFactors.age': 'Edad',
+            'riskFactors.impactLevel': 'Nivel de impacto',
+            
+            // 規則說明
+            'rules.title': 'Explicación de Reglas de Evaluación',
+            'rules.lowRisk.title': 'Condiciones de Riesgo Bajo',
+            'rules.lowRisk.1': 'Días desde la última visita < 30 días',
+            'rules.lowRisk.2': 'Puntuación de satisfacción ≥ 4 puntos',
+            'rules.lowRisk.3': 'Visitas mensuales ≥ 7 veces',
+            'rules.lowRisk.probability': 'Probabilidad de pérdida: ~15%',
+            
+            'rules.mediumRisk.title': 'Condiciones de Riesgo Medio',
+            'rules.mediumRisk.1': 'Días desde la última visita 30-60 días',
+            'rules.mediumRisk.2': 'Puntuación de satisfacción = 3 puntos',
+            'rules.mediumRisk.3': 'Visitas mensuales 4-6 veces',
+            'rules.mediumRisk.probability': 'Probabilidad de pérdida: ~28.5%',
+            
+            'rules.highRisk.title': 'Condiciones de Riesgo Alto',
+            'rules.highRisk.1': 'Días desde la última visita > 60 días',
+            'rules.highRisk.2': 'Puntuación de satisfacción ≤ 2 puntos',
+            'rules.highRisk.3': 'Visitas mensuales ≤ 3 veces',
+            'rules.highRisk.probability': 'Probabilidad de pérdida: ~42%',
+            
+            // 頁尾
+            'footer.version': 'Evaluador de Riesgo de Pérdida de Clientes para Teterías v1.0 • Basado en análisis de datos de febrero 2026',
+            'footer.disclaimer': 'Esta herramienta es solo para referencia. Las decisiones reales deben combinar experiencia comercial y condiciones del mercado',
+            
+            // 工具提示和幫助文本
+            'tooltip.required': 'Campo obligatorio',
+            'tooltip.range': 'Rango válido',
+            'tooltip.help': 'Haga clic para más información',
+            
+            // 錯誤訊息
+            'error.required': 'Este campo es obligatorio',
+            'error.range': 'El valor debe estar entre {min} y {max}',
+            'error.invalid': 'Valor inválido',
+            
+            // 成功訊息
+            'success.assessmentComplete': 'Evaluación de riesgo completada exitosamente',
+            
+            // 星星評分標籤
+            'stars.1': 'Muy insatisfecho',
+            'stars.2': 'Insatisfecho',
+            'stars.3': 'Neutral',
+            'stars.4': 'Satisfecho',
+            'stars.5': 'Muy satisfecho',
+            
+            // 推薦項目
+            'recommendation.1': 'Mantener la calidad de servicio actual',
+            'recommendation.2': 'Proporcionar ofertas exclusivas VIP',
+            'recommendation.3': 'Invitar a participar en la cata de nuevos productos',
+            'recommendation.4': 'Enviar mensajes de cuidado regulares',
+            
+            // 風險等級特定推薦（低風險）
+            'recommendation.low.1': 'Mantener la calidad de servicio actual',
+            'recommendation.low.2': 'Proporcionar ofertas exclusivas VIP',
+            'recommendation.low.3': 'Invitar a participar en la cata de nuevos productos',
+            'recommendation.low.4': 'Enviar mensajes de cuidado regulares',
+            
+            // 風險等級特定推薦（中風險）
+            'recommendation.medium.1': 'Enviar cupones de descuento personalizados',
+            'recommendation.medium.2': 'Realizar encuesta de satisfacción',
+            'recommendation.medium.3': 'Ofrecer membresía del programa de fidelidad',
+            'recommendation.medium.4': 'Programar recordatorio de visita de seguimiento',
+            
+            // 風險等級特定推薦（高風險）
+            'recommendation.high.1': 'Contactar al cliente inmediatamente para obtener comentarios',
+            'recommendation.high.2': 'Ofrecer descuento significativo para la próxima visita',
+            'recommendation.high.3': 'Asignar representante de servicio al cliente dedicado',
+            'recommendation.high.4': 'Crear plan de recuperación personalizado'
         }
     },
 
